@@ -168,17 +168,8 @@ graph TD
     D --> E{Scheduling successful?}
     E -- Yes --> H[Create the event for successful scheduling of pod and unit]
     E -- No --> F[Create the failure event for pod and unit, log the failure reason in the podgroup condition]
-    F --> G[
-        For all the pods,
-        update cache and re-queue the pods,
-        call the update API to update the condition
-    ]
-    H --> I[
-        Remove the scheduled pod from the unit,
-        update the remaining pods with cache,
-        re-queue the remaining pods,
-        call the update API to update the condition for the remaining pods that failed to schedule
-    ]
+    F --> G[For all the pods, update cache and re-queue the pods, call the update API to update the condition]
+    H --> I[Remove the scheduled pod from the unit, update the remaining pods with cache, re-queue the remaining pods,call the update API to update the condition for the remaining pods that failed to schedule]
     I --> J[Persist pod asynchronously]
     G --> A
     J --> A

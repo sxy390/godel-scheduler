@@ -162,15 +162,15 @@ The enhanced scheduling process post-development is illustrated in the following
 
 ```mermaid
 graph TD
-    A[Pop a unit, construct schedulingUnitInfo] --> B[Update snapshot]
-    B --> C[Divide and create NodeGroups]
-    C --> D[Traverse NodeGroups and try scheduling]
+    A[a] --> B[b]
+    B --> C[c]
+    C --> D[d]
     D --> E{Scheduling successful?}
-    E -- Yes --> H[Create the event for successful scheduling of pod and unit]
-    E -- No --> F[Create the failure event for pod and unit, log the failure reason in the podgroup condition]
-    F --> G[For all the pods, update cache and re-queue the pods, call the update API to update the condition]
-    H --> I[Remove the scheduled pod from the unit, update the remaining pods with cache, re-queue the remaining pods,call the update API to update the condition for the remaining pods that failed to schedule]
-    I --> J[Persist pod asynchronously]
+    E -- Yes --> H[h]
+    E -- No --> F[f]
+    F --> G[g]
+    H --> I[i]
+    I --> J[j]
     G --> A
     J --> A
 ```
